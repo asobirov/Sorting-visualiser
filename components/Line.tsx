@@ -1,7 +1,12 @@
 import { Box, Text } from "@chakra-ui/react"
 import { TLine } from "@lib/types"
 
-const Line = ({ length, isActive }: TLine) => {
+type LineProps = {
+    lenght?: number
+    [key: string]: any
+}
+
+const Line = ({ length, isActive, ...rest }: LineProps) => {
     return (
         <Box
             w='100%'
@@ -10,6 +15,7 @@ const Line = ({ length, isActive }: TLine) => {
             borderRadius={4}
             height={`${length}%`}
             background={isActive ? "green.400" : "whiteAlpha.500"}
+            {...rest}
         >
             {/* <Text fontSize="100%">{length}</Text> */}
         </Box>
